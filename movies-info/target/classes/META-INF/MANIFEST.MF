@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: lucas
+Build-Jdk: 1.8.0_151
+Implementation-Title: movies
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.movies.info
+Created-By: Maven Integration for Eclipse
+
