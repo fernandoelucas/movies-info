@@ -1,15 +1,14 @@
 package com.movies.info.service;
 
-import com.movies.info.dto.DirectorDTO;
-import com.movies.info.entity.Director;
-import com.movies.info.repository.DirectorRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import com.movies.info.dto.DirectorDTO;
+import com.movies.info.entity.Director;
+import com.movies.info.repository.DirectorRepository;
 
 @Service
 public class DirectorService {

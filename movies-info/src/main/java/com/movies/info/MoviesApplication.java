@@ -1,13 +1,16 @@
 package com.movies.info;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.annotation.PostConstruct;
 import java.util.Date;
 import java.util.TimeZone;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+
 @SpringBootApplication
+@EnableCaching
 public class MoviesApplication {
 
 

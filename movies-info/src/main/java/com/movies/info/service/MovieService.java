@@ -1,5 +1,12 @@
 package com.movies.info.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.movies.info.dto.MovieDTO;
 import com.movies.info.entity.Actor;
 import com.movies.info.entity.Director;
@@ -7,13 +14,6 @@ import com.movies.info.entity.Movie;
 import com.movies.info.repository.ActorRepository;
 import com.movies.info.repository.DirectorRepository;
 import com.movies.info.repository.MovieRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MovieService {
