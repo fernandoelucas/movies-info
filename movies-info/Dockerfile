@@ -3,11 +3,11 @@
 FROM maven:3.5-jdk-8 as maven
 
 # Set the current working directory inside the image
-WORKDIR /movies-info
+WORKDIR ./movies-info
 #RUN chmod -R 777 mvnw 
 # Copy maven executable to the image
-#COPY mvnw .
-#COPY .mvn .mvn
+COPY mvnw .
+COPY .mvn .mvn
 
 # Copy the pom.xml file
 COPY pom.xml .
