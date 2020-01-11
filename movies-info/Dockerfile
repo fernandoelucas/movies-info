@@ -1,9 +1,9 @@
-#### Stage 1: Build the application
+#### Stage 1: Build the movies-infolication
 FROM openjdk:8-jdk-alpine as build
 
 # Set the current working directory inside the image
 WORKDIR /movies-info
-RUN chmod -R 777 mvnw
+
 # Copy maven executable to the image
 COPY mvnw .
 COPY .mvn .mvn
@@ -20,19 +20,19 @@ RUN ./mvnw dependency:go-offline -B
 # Copy the project source
 COPY src src
 
-# Package the application
+# Package the movies-infolication
 
 RUN ./mvnw package -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-#### Stage 2: A minimal docker image with command to run the app 
+#### Stage 2: A minimal docker image with command to run the movies-info 
 FROM openjdk:8-jre-alpine
 
-ARG DEPENDENCY=/app/target/dependency
+ARG DEPENDENCY=/movies-info/target/dependency
 
 # Copy project dependencies from the build stage
-COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /movies-info/lib
+COPY --from=build ${DEPENDENCY}/META-INF /movies-info/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /movies-info
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.movies.info.MoviesApplication"]
+ENTRYPOINT ["java","-cp","movies-info:movies-info/lib/*","com.movies.info.MoviesApplication"]
