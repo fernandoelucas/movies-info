@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine as build
 
 # Set the current working directory inside the image
 WORKDIR /movies-info
-
+RUN chmod -R 777 mvnw 
 # Copy maven executable to the image
 COPY mvnw .
 COPY .mvn .mvn
