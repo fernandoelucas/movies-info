@@ -1,9 +1,10 @@
 #### Stage 1: Build the movies-infolication
-FROM openjdk:8-jdk-alpine as build
+# our base build image
+FROM maven:3.5-jdk-8 as maven
 
 # Set the current working directory inside the image
 WORKDIR /movies-info
-#RUN chmod -R 777 ./mvnw 
+#RUN chmod -R 777 mvnw 
 # Copy maven executable to the image
 #COPY mvnw .
 #COPY .mvn .mvn
