@@ -25,7 +25,7 @@ RUN ./mvnw dependency:go-offline -B
 # Copy the project source
 COPY src src
 
-# Package the movies-infolication
+# Package the movies-info
 
 RUN ./mvnw package -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
@@ -40,4 +40,4 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /movies-info/lib
 COPY --from=build ${DEPENDENCY}/META-INF /movies-info/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /movies-info
 
-ENTRYPOINT ["java","-cp","movies-info:movies-info/lib/*","com.movies.authentication.MoviesApplication"]
+ENTRYPOINT ["java","-cp","movies-info:movies-info/lib/*","com.movies.info.MoviesApplication"]
